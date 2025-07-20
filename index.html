@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Solar System Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>3D Solar System Explorer</h1>
+            <div class="header-controls">
+                <button id="pauseBtn" class="control-btn">⏸️ Pause</button>
+                <button id="themeToggle" class="control-btn">🌙 Dark</button>
+            </div>
+        </header>
+
+        <!-- Main Canvas -->
+        <div class="canvas-container">
+            <canvas id="solarSystemCanvas"></canvas>
+            
+            <!-- Planet Info Tooltip -->
+            <div id="planetTooltip" class="tooltip hidden">
+                <div class="tooltip-content">
+                    <h3 id="tooltipTitle"></h3>
+                    <p id="tooltipInfo"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <h2>Planet Speed Controls</h2>
+            <div class="controls-grid">
+                <!-- Mercury -->
+                <div class="planet-control">
+                    <div class="planet-label">
+                        <span class="planet-color mercury"></span>
+                        <span>Mercury</span>
+                    </div>
+                    <input type="range" id="mercurySpeed" min="0" max="5" step="0.1" value="1.2">
+                    <span class="speed-value">1.2x</span>
+                </div>
+
+                <!-- Venus -->
+                <div class="planet-control">
+                    <div class="planet-label">
+                        <span class="planet-color venus"></span>
+                        <span>Venus</span>
+                    </div>
+                    <input type="range" id="venusSpeed" min="0" max="5" step="0.1" value="1.0">
+                    <span class="speed-value">1.0x</span>
+                </div>
+
+                <!-- Earth -->
+                <div class="planet-control">
+                    <div class="planet-label">
+                        <span class="planet-color earth"></span>
+                        <span>Earth</span>
+                    </div>
+                    <input type="range" id="earthSpeed" min="0" max="5" step="0.1" value="0.8">
+                    <span class="speed-value">0.8x</span>
+                </div>
+
+                <!-- Mars -->
+                <div class="planet-control">
+                    <div class="planet-label">
+                        <span class="planet-color mars"></span>
+                        <span>Mars</span>
+                    </div>
+                    <input type="range" id="marsSpeed" min="0" max="5" step="0.1" value="0.6">
+                    <span class="speed-value">0.6x</span>
+                </div>
+
+                <!-- Jupiter -->
+                <div class="planet-control">
+                    <div class="planet-label">
+                        <span class="planet-color jupiter"></span>
+                        <span>Jupiter</span>
+                    </div>
+                    <input type="range" id="jupiterSpeed" min="0" max="5" step="0.1" value="0.4">
+                    <span class="speed-value">0.4x</span>
+                </div>
+
+                <!-- Saturn -->
+                <div class="planet-control">
+                    <div class="planet-label">
+                        <span class="planet-color saturn"></span>
+                        <span>Saturn</span>
+                    </div>
+                    <input type="range" id="saturnSpeed" min="0" max="5" step="0.1" value="0.3">
+                    <span class="speed-value">0.3x</span>
+                </div>
+
+                <!-- Uranus -->
+                <div class="planet-control">
+                    <div class="planet-label">
+                        <span class="planet-color uranus"></span>
+                        <span>Uranus</span>
+                    </div>
+                    <input type="range" id="uranusSpeed" min="0" max="5" step="0.1" value="0.2">
+                    <span class="speed-value">0.2x</span>
+                </div>
+
+                <!-- Neptune -->
+                <div class="planet-control">
+                    <div class="planet-label">
+                        <span class="planet-color neptune"></span>
+                        <span>Neptune</span>
+                    </div>
+                    <input type="range" id="neptuneSpeed" min="0" max="5" step="0.1" value="0.1">
+                    <span class="speed-value">0.1x</span>
+                </div>
+            </div>
+
+            <!-- Global Controls -->
+            <div class="global-controls">
+                <button id="resetBtn" class="control-btn">🔄 Reset All</button>
+                <button id="zoomBtn" class="control-btn">🔍 Auto Zoom</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h2>Loading Solar System...</h2>
+            <p>Preparing planets and textures</p>
+        </div>
+    </div>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
